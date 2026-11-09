@@ -30,7 +30,7 @@ int			ft_isdigit(int c);
 int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
-long long			ft_atoi(const char *nbr);
+long long int			ft_atoi(const char *nbr);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t n, size_t size);
 char		*ft_itoa(int n);

@@ -6,7 +6,7 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 10:06:32 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/09 11:46:46 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/09 18:50:09 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_check_if_num(char *str)
 	{
 		if (str[i] == '-' && i == 0)
 				i += 1;
-		if (str[i] > '9' && str[i] < '0')
+		if (str[i] > '9' || str[i] < '0')
 				return (-1);
 		i++;
 	}
@@ -64,11 +64,15 @@ size_t	ft_count_args(char **argv, int argc)
 	return (len);
 }
 
+#include <stdio.h>
+void    print_list(t_list *innit);
+t_list  *ft_insert_at_last(t_list *last, int data);
+
 t_list	*ft_create_a(char **argv, int argc)
 {
-	t_list	*head;
+	t_list	*head = NULL;
 	t_list	*actual;
-	int	i;
+	int	i = 0;
 
 	i = 0;
 	while (i < argc)
@@ -77,21 +81,57 @@ t_list	*ft_create_a(char **argv, int argc)
 		{
 			if (!head)
 			{
-				head = ft_lstnew(ft_atoi(argv[i]));
+				head = ft_lstnew((int)ft_atoi(argv[i]));
+				actual = head;
 				if (!head)
-						return (NULL);
+					return (NULL);
 			}
 			else
 			{
-				actual = ft_lstnew(ft_atoi(argv[i]));
+				actual = ft_insert_at_last(actual, (int)ft_atoi(argv[i]));
 				//if (!actual)
-				//		return (ft_lstclear(**head, lst_del));
-				ft_lstadd_back(&head, actual);
+				//	return (ft_lstclear(head, lst_del));
 			}
 		}
 		i++;
 	}
 	return (head);
+}
+
+t_list	*ft_insert_at_last(t_list *last, int data)
+{
+	t_list	*newnode;
+
+	newnode = malloc(sizeof(t_list));
+	if (!newnode)
+		return (NULL);
+	newnode->content = data;
+	if (!last)
+	{
+		last = newnode;
+		last->next = NULL;
+	}
+	else
+	{
+		last->next = newnode;
+		newnode->next = NULL;
+		last = newnode;
+	}
+
+	return (last);
+}
+
+void	print_list(t_list *innit)
+{
+	t_list	*temp;
+
+	temp = innit;
+	while (temp)
+	{
+		printf("%d->", temp->content);
+		temp = temp->next;
+	}
+	printf("\n");
 }
 
 //FIRST TRY WITH BRUTEFORCE
