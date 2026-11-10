@@ -6,7 +6,7 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 10:06:32 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/09 18:50:09 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/10 11:33:04 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ int	ft_check_if_num(char *str)
 
 int	ft_valid_identifier(char *str)
 {
-	if (!ft_strncmp(str, "--simple", 9))
+	if (ft_strncmp(str, "--simple", 9))
 			return (-1);
-	else if (!ft_strncmp(str, "--medium", 9))
+	else if (ft_strncmp(str, "--medium", 9))
 			return(-1);
-	else if (!ft_strncmp(str, "--complex", 9))
+	else if (ft_strncmp(str, "--complex", 9))
 			return (-1);
-	else if (!ft_strncmp(str, "--adaptative", 13))
+	else if (ft_strncmp(str, "--adaptative", 13))
 			return (-1);
-	else if (!ft_strncmp(str, "--bench", 8))
+	else if (ft_strncmp(str, "--bench", 8))
 			return (-1);
 	else
 			return (1);
@@ -68,7 +68,7 @@ size_t	ft_count_args(char **argv, int argc)
 void    print_list(t_list *innit);
 t_list  *ft_insert_at_last(t_list *last, int data);
 
-t_list	*ft_create_a(char **argv, int argc)
+t_list	**ft_create_a(char **argv, int argc)
 {
 	t_list	*head = NULL;
 	t_list	*actual;
@@ -89,13 +89,16 @@ t_list	*ft_create_a(char **argv, int argc)
 			else
 			{
 				actual = ft_insert_at_last(actual, (int)ft_atoi(argv[i]));
-				//if (!actual)
-				//	return (ft_lstclear(head, lst_del));
+				if (!actual)
+				{
+					error_free_stack(&head);
+					return (NULL);
+				}
 			}
 		}
 		i++;
 	}
-	return (head);
+	return (&head);
 }
 
 t_list	*ft_insert_at_last(t_list *last, int data)
