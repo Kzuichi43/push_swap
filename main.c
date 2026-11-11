@@ -6,7 +6,7 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 10:04:25 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/09 17:33:42 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/11 11:46:37 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,10 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	*head;
+	int	num_ops;
 
-	if (argc < 3)
-			return (0);
-	head = ft_create_a(argv, argc);
-	printf("LENGTH OF %u\n", ft_lstsize(head));
-	while (head)
-	{
-		printf("%d \n", head->content);
-		head = head->next;
-	}
+	num_ops = push_swap(argc, argv);
+	if (num_ops == -1)
+			return(write(2, "Error\n", 6));
 	return (0);
 }
