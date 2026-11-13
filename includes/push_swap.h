@@ -6,7 +6,7 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 10:05:22 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/13 09:15:56 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/13 13:59:44 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,7 @@ void	rr(t_list **a_stack, t_list **b_stack);
 void	rra(t_list **stack);
 void	rrb(t_list **stack);
 void	rrr(t_list **a_stack, t_list **b_stack);
+int	find_max(t_list **a);
+void	selection_sort(t_list **a, t_list **b, t_lector registre);
+
 #endif

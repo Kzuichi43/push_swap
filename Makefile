@@ -6,7 +6,7 @@
 #    By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/07 10:22:52 by alexgonz          #+#    #+#              #
-#    Updated: 2026/11/13 09:38:01 by alexgonz         ###   ########.fr        #
+#    Updated: 2026/11/13 14:04:28 by alexgonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ PRINT_DIR = ./ft_printf
 PRINT_LIB = $(PRINT_DIR)/libftprintf.a
 SRCS = srcs/ft_parser.c srcs/input_validator.c srcs/push_handler.c srcs/strategy_handler.c srcs/print_bench.c \
 	   srcs/ft_oper_p.c srcs/ft_oper_rr.c srcs/ft_oper_r.c srcs/ft_oper_s.c srcs/rotators.c srcs/swapper_putter.c \
-	   srcs/operation_register.c
+	   srcs/operation_register.c srcs/find_algorithms.c srcs/selection_sort.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -34,7 +34,6 @@ clean:
 	$(RM) $(OBJS)
 fclean: clean
 	$(MAKE) fclean -C $(PRINT_DIR)
-	rm out
 	$(RM) $(NAME)
 re: fclean all
 	clear

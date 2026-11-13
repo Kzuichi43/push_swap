@@ -6,7 +6,7 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 11:02:17 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/13 10:26:07 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/13 14:02:58 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 int	push_swap(int argc, char **argv)
 {
 	t_list	*a;
-	t_list *temp;
+	//t_list *temp;
 	t_list	*b = NULL;
 	t_strategy	selected;
+	t_lector	registre;
 	//int	num_op;
-	int	i;
+	//int	i;
 
 	if (argc < 3)
 			return (-1);
@@ -31,26 +32,9 @@ int	push_swap(int argc, char **argv)
 	selected = select_strategy(argc, argv);
 	if (selected.bench)
 		print_bench(selected, disorder_metric(ft_lstsize(a), create_the_array(a)));
-	//ft_printf("LENGTH AT START OF A %d AND B %d \n", ft_lstsize(a), ft_lstsize(b));
-	i = 0;
-	while (a)
-	{
-		pb(&a, &b);
-		if (!a)
-			break;
-	//pb(&a, &b);
-		ft_printf("LENGTH AT END OF A %d AND B %d \n", ft_lstsize(a), ft_lstsize(b));
-		temp = a;
-		while (temp)
-		{
-			ft_printf("%d,\n", temp->content);
-			temp = temp->next;
-		}
-		i++;
-	}
-	ft_printf("b stack %d\n", ft_lstsize(b));
-	//temp = NULL;
-	error_free_stack(b);
+	registre = register_innit();
+	selection_sort(&a, &b, registre);
+	//error_free_stack(a);
 	return (0);
 }
 
