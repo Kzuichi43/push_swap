@@ -6,7 +6,7 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 10:05:22 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/11 15:30:49 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/13 09:15:56 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,19 @@ int	*create_the_array(t_list *a);
 void	print_bench(t_strategy selected, float disorder_metric);
 void	operation_register(t_lector registre, t_list *a, t_list *b, char *str);
 t_lector	register_innit(void);
-
+void	operation_rotator(t_lector registre, t_list *a, t_list *b, char *str);
+void	operation_reverse_rotation(t_lector registre, t_list *a, t_list *b, char *str);
+void	operation_swapper(t_lector regisre, t_list *a, t_list *b, char *str);
+void	operation_putter(t_lector registre, t_list *a, t_list *b, char *str);
+int	sa(t_list *stack);
+int	sb(t_list *stack);
+int	ss(t_list *a_stack, t_list *b_stack);
+int	pa(t_list **a_stack, t_list **b_stack);
+int	pb(t_list **a_stack, t_list **b_stack);
+void	ra(t_list **stack);
+void	rb(t_list **stack);
+void	rr(t_list **a_stack, t_list **b_stack);
+void	rra(t_list **stack);
+void	rrb(t_list **stack);
+void	rrr(t_list **a_stack, t_list **b_stack);
 #endif

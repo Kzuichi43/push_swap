@@ -6,11 +6,11 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 11:35:13 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/10 13:50:28 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/13 09:09:10 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 t_strategy	select_strategy(int argc, char **argv)
 {

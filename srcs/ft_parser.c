@@ -6,11 +6,11 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 10:06:32 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/10 15:05:43 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/13 09:08:03 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_check_if_num(char *str)
 {

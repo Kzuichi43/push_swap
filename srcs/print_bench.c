@@ -6,11 +6,11 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 15:41:28 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/11 18:46:08 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/13 09:08:37 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 
 static void	printf_adaptative(float disorder_metric)
