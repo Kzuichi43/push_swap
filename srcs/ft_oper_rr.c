@@ -6,7 +6,7 @@
 /*   By: zdyboski <zdyboski@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 15:23:10 by zdyboski          #+#    #+#             */
-/*   Updated: 2026/11/13 09:15:53 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/14 17:23:02 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void rrot(t_list **stack)
 	int	len;
 	int	i;
 
+	if (ft_lstsize(*stack) < 2)
+		return ;
 	i = 0;
 	first = *stack;
 	temp = *stack;

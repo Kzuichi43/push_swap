@@ -6,7 +6,7 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 15:41:28 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/13 09:08:37 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/16 17:01:49 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,20 @@ static void	printf_adaptative(float disorder_metric)
 			ft_printf("O(nlog(n))\n");
 			
 }
-void	print_bench(t_strategy selected, float disorder_metric)
+
+static void	print_operations(t_lector registre)
+{
+	ft_printf("[bench] ");
+	ft_printf("total ops: %d\n", registre.num_ops);
+	ft_printf("[bench] ");
+	ft_printf("sa: %d sb: %d ss: %d pa: %d pb: %d\n", 
+			registre.sa, registre.sb, registre.ss, registre.pa, registre.pb);
+	ft_printf("[bench] ");
+	ft_printf("ra: %d rb: %d rr: %d rra %d rrb %d rrr: %d\n", registre.ra, registre.rb, 
+			registre.rr, registre.rra, registre.rrb, registre.rrr);
+}
+
+void	print_bench(t_strategy selected, float disorder_metric, t_lector registre)
 {
 	ft_printf("[bench] disorder:  %f%%\n", disorder_metric);
 	if (selected.strat == 1)
@@ -35,5 +48,5 @@ void	print_bench(t_strategy selected, float disorder_metric)
 			ft_printf("[bench] strategy:  Complex / O(nlog(n))\n");
 	else
 			printf_adaptative(disorder_metric);
-	//print_operations();
+	print_operations(registre);
 }

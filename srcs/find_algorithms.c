@@ -6,7 +6,7 @@
 /*   By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 12:27:55 by alexgonz          #+#    #+#             */
-/*   Updated: 2026/11/13 12:35:55 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/14 13:48:57 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,17 @@
 int	find_max(t_list **a)
 {
 	int	max;
-	size_t	len;
-	size_t	i = 0;
+	t_list	*temp;
 
 	if (!a || !(*a))
 			return (0);
-	len = ft_lstsize(*a);
 	max = (*a)->content;
-	while (i < len)
+	temp = (*a);
+	while (temp)
 	{
-		if (max < (*a)->content)
-				max = (*a)->content;
-		ra(a);
-		i++;
+		if (max < (temp)->content)
+				max = (temp)->content;
+		temp = temp->next;
 	}
 	return (max);
 }

@@ -6,17 +6,19 @@
 /*   By: zdyboski <zdyboski@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 15:23:10 by zdyboski          #+#    #+#             */
-/*   Updated: 2026/11/13 09:12:57 by alexgonz         ###   ########.fr       */
+/*   Updated: 2026/11/14 17:59:46 by alexgonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void rot(t_list **stack)
+void rot(t_list **stack)
 {
 	t_list	*last;
 	t_list	*head;
 
+	if (!(*stack) || !stack || ft_lstsize(*stack) < 2)
+		return ;
 	last = *stack;
 	head = (*stack)->next;
 	while ((*stack)->next != NULL)
