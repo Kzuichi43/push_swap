@@ -1,47 +1,33 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: alexgonz <alexgonz@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/10/07 10:22:52 by alexgonz          #+#    #+#              #
-#    Updated: 2026/11/14 18:56:38 by alexgonz         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME      := libft.a
+CC        := cc
+CFLAGS	  := -Wall -Wextra -Werror -I../includes/
+AR        := ar 
+RCS       := rcs
+RM        := rm -f
+SRC       := ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
+	     ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c\
+	     ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c\
+	     ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c\
+	     ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c\
+	     ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c\
+	     ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
+	     ft_lstnew.c\
+	     ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
+	     ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./includes/
-RM = rm -rf
-NAME = push_swap.a
-PRINT_DIR = ./ft_printf
-PRINT_LIB = $(PRINT_DIR)/libftprintf.a
-SRCS = srcs/ft_parser.c srcs/input_validator.c srcs/push_handler.c srcs/strategy_handler.c srcs/print_bench.c \
-	   srcs/ft_oper_p.c srcs/ft_oper_rr.c srcs/ft_oper_r.c srcs/ft_oper_s.c srcs/rotators.c srcs/swapper_putter.c \
-	   srcs/operation_register.c srcs/find_algorithms.c srcs/selection_sort.c srcs/radix_sorting.c srcs/bucket_sort.c
-OBJS = $(SRCS:.c=.o)
+OBJS      := $(SRC:.c=.o)
+
+HEADER    := libft.h
 
 all: $(NAME)
+$(NAME): $(OBJS)
+	$(AR) $(RCS) $(NAME) $(OBJS)
 
-$(NAME): $(OBJS) $(PRINT_LIB)
-	cp $(PRINT_LIB) $(NAME)
-	ar rcs $(NAME) $(OBJS)
-$(PRINT_LIB):
-	$(MAKE) -C $(PRINT_DIR)
-
-clean:
-	$(MAKE) clean -C $(PRINT_DIR)
+%.o: %.c $(HEADER) Makefile
+	$(CC) $(CFLAGS) -c -o $@ $<
+clean: 
 	$(RM) $(OBJS)
 fclean: clean
-	$(MAKE) fclean -C $(PRINT_DIR)
 	$(RM) $(NAME)
 re: fclean all
-	clear
-	tree
-file: re
-	$(CC) main.c $(NAME) -o out
-
-.PHONY: all clean fclean re
-
-.SILENT:
-
+.PHONY : all clean fclean re 
